@@ -153,10 +153,10 @@
           <Property Name="TopID" Type="Int32" Nullable="false" />
           <Property Name="BottomID" Type="Int32" Nullable="false" />
           <Property Name="ShoeID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="WardrobeItem" Relationship="Self.FK_Outfits_WardrobeItems" FromRole="Outfits" ToRole="WardrobeItems" />
-          <NavigationProperty Name="WardrobeItem1" Relationship="Self.FK_Outfits_WardrobeItems1" FromRole="Outfits" ToRole="WardrobeItems" />
-          <NavigationProperty Name="WardrobeItem2" Relationship="Self.FK_Outfits_WardrobeItems2" FromRole="Outfits" ToRole="WardrobeItems" />
-          <NavigationProperty Name="WardrobeItems" Relationship="Self.Accessories" FromRole="Outfits" ToRole="WardrobeItems" />
+          <NavigationProperty Name="Top" Relationship="Self.FK_Outfits_WardrobeItems2" FromRole="Outfits" ToRole="WardrobeItems" />
+          <NavigationProperty Name="Bottom" Relationship="Self.FK_Outfits_WardrobeItems" FromRole="Outfits" ToRole="WardrobeItems" />
+          <NavigationProperty Name="Shoes" Relationship="Self.FK_Outfits_WardrobeItems1" FromRole="Outfits" ToRole="WardrobeItems" />
+          <NavigationProperty Name="Accessories" Relationship="Self.Accessories" FromRole="Outfits" ToRole="WardrobeItems" />
         </EntityType>
         <EntityType Name="Type">
           <Key>
@@ -174,11 +174,11 @@
           <Property Name="TypeID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Outfits" Relationship="Self.FK_Outfits_WardrobeItems" FromRole="WardrobeItems" ToRole="Outfits" />
-          <NavigationProperty Name="Outfits1" Relationship="Self.FK_Outfits_WardrobeItems1" FromRole="WardrobeItems" ToRole="Outfits" />
-          <NavigationProperty Name="Outfits2" Relationship="Self.FK_Outfits_WardrobeItems2" FromRole="WardrobeItems" ToRole="Outfits" />
+          <NavigationProperty Name="OutfitsWithThisTop" Relationship="Self.FK_Outfits_WardrobeItems2" FromRole="WardrobeItems" ToRole="Outfits" />
+          <NavigationProperty Name="OutfitsWithThisBottom" Relationship="Self.FK_Outfits_WardrobeItems" FromRole="WardrobeItems" ToRole="Outfits" />
+          <NavigationProperty Name="OutfitsWithTheseShoes" Relationship="Self.FK_Outfits_WardrobeItems1" FromRole="WardrobeItems" ToRole="Outfits" />
+          <NavigationProperty Name="OutFitsWithTheseAccessories" Relationship="Self.Accessories" FromRole="WardrobeItems" ToRole="Outfits" />
           <NavigationProperty Name="Type" Relationship="Self.FK_WardrobeItems_Types" FromRole="WardrobeItems" ToRole="Types" />
-          <NavigationProperty Name="Outfits3" Relationship="Self.Accessories" FromRole="WardrobeItems" ToRole="Outfits" />
         </EntityType>
         <Association Name="FK_Outfits_WardrobeItems">
           <End Role="WardrobeItems" Type="Self.WardrobeItem" Multiplicity="1" />

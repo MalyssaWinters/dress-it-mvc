@@ -17,10 +17,10 @@ namespace DressItDB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public WardrobeItem()
         {
-            this.Outfits = new HashSet<Outfit>();
-            this.Outfits1 = new HashSet<Outfit>();
-            this.Outfits2 = new HashSet<Outfit>();
-            this.Outfits3 = new HashSet<Outfit>();
+            this.OutfitsWithThisTop = new HashSet<Outfit>();
+            this.OutfitsWithThisBottom = new HashSet<Outfit>();
+            this.OutfitsWithTheseShoes = new HashSet<Outfit>();
+            this.OutFitsWithTheseAccessories = new HashSet<Outfit>();
         }
     
         public int WardrobeItemID { get; set; }
@@ -29,13 +29,13 @@ namespace DressItDB.Models
         public string Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outfit> Outfits { get; set; }
+        public virtual ICollection<Outfit> OutfitsWithThisTop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outfit> Outfits1 { get; set; }
+        public virtual ICollection<Outfit> OutfitsWithThisBottom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outfit> Outfits2 { get; set; }
+        public virtual ICollection<Outfit> OutfitsWithTheseShoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Outfit> OutFitsWithTheseAccessories { get; set; }
         public virtual Type Type { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outfit> Outfits3 { get; set; }
     }
 }
