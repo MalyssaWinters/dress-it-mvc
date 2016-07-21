@@ -177,7 +177,7 @@
           <NavigationProperty Name="OutfitsWithThisTop" Relationship="Self.FK_Outfits_WardrobeItems2" FromRole="WardrobeItems" ToRole="Outfits" />
           <NavigationProperty Name="OutfitsWithThisBottom" Relationship="Self.FK_Outfits_WardrobeItems" FromRole="WardrobeItems" ToRole="Outfits" />
           <NavigationProperty Name="OutfitsWithTheseShoes" Relationship="Self.FK_Outfits_WardrobeItems1" FromRole="WardrobeItems" ToRole="Outfits" />
-          <NavigationProperty Name="OutFitsWithTheseAccessories" Relationship="Self.Accessories" FromRole="WardrobeItems" ToRole="Outfits" />
+          <NavigationProperty Name="OutFitsWithThisAccessory" Relationship="Self.Accessories" FromRole="WardrobeItems" ToRole="Outfits" />
           <NavigationProperty Name="Type" Relationship="Self.FK_WardrobeItems_Types" FromRole="WardrobeItems" ToRole="Types" />
         </EntityType>
         <Association Name="FK_Outfits_WardrobeItems">

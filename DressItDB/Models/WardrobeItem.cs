@@ -20,7 +20,7 @@ namespace DressItDB.Models
             this.OutfitsWithThisTop = new HashSet<Outfit>();
             this.OutfitsWithThisBottom = new HashSet<Outfit>();
             this.OutfitsWithTheseShoes = new HashSet<Outfit>();
-            this.OutFitsWithTheseAccessories = new HashSet<Outfit>();
+            this.OutFitsWithThisAccessory = new HashSet<Outfit>();
         }
     
         public int WardrobeItemID { get; set; }
@@ -35,7 +35,7 @@ namespace DressItDB.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Outfit> OutfitsWithTheseShoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Outfit> OutFitsWithTheseAccessories { get; set; }
+        public virtual ICollection<Outfit> OutFitsWithThisAccessory { get; set; }
         public virtual Type Type { get; set; }
     }
 }
