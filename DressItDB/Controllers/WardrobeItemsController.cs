@@ -21,6 +21,7 @@ namespace DressItDB.Controllers
             return View(wardrobeItems.ToList());
         }
 
+
         // GET: WardrobeItems/Details/5
         public ActionResult Details(int? id)
         {

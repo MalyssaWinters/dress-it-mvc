@@ -99,6 +99,7 @@ namespace DressItDB.Controllers
             ViewBag.TopID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.TopID);
             ViewBag.BottomID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.BottomID);
             ViewBag.ShoeID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.ShoeID);
+            //ViewBag.Accessories = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.Accessories);
             return View(outfit);
         }
 
