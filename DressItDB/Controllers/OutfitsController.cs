@@ -51,6 +51,10 @@ namespace DressItDB.Controllers
                         where item.TypeID == 3
                         select item;
             ViewBag.ShoeID = new SelectList(shoes, "WardrobeItemID", "Name");
+            var accessories = from item in db.WardrobeItems
+                              where item.TypeID == 4
+                              select item;
+            ViewBag.AccessoryIDs = new MultiSelectList(accessories, "WardrobeItemID", "Name");
             return View();
         }
 
@@ -59,10 +63,14 @@ namespace DressItDB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OutfitID,TopID,BottomID,ShoeID")] Outfit outfit)
+        public ActionResult Create([Bind(Include = "OutfitID,TopID,BottomID,ShoeID")] Outfit outfit, int[] accessoryIDs)
         {
             if (ModelState.IsValid)
             {
+                foreach (int accessoryID in accessoryIDs)
+                    {
+                    outfit.Accessories.Add(db.WardrobeItems.Find(accessoryID));
+                    }
                 db.Outfits.Add(outfit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -133,6 +141,7 @@ namespace DressItDB.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Outfit outfit = db.Outfits.Find(id);
+            outfit.Accessories.Clear();
             db.Outfits.Remove(outfit);
             db.SaveChanges();
             return RedirectToAction("Index");

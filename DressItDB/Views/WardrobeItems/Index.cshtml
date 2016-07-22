@@ -30,23 +30,12 @@
 
         <tr>
 
-            @*<td>
-        <a href="@Url.Action("ToggleDone", new { id = item.ItemID })">
-            @if (item.IsDone)
-            {
-                <span class="glyphicon glyphicon-check"></span>
-            }
-            else
-            {
-                <span class="glyphicon glyphicon-unchecked"></span>
-            }
-        </a>
-    </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo)
+                @Html.DisplayFor(modelItem =>item.Photo)
+                @*<img src="@Url.Content(item.Photo) " alt="Photo" />*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type.TypeName)
