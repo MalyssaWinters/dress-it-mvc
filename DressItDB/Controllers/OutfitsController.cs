@@ -63,14 +63,18 @@ namespace DressItDB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OutfitID,TopID,BottomID,ShoeID")] Outfit outfit, int[] accessoryIDs)
+        public ActionResult Create([Bind(Include = "OutfitID,TopID,BottomID,ShoeID")] Outfit outfit, int[] AccessoryIDs)
         {
             if (ModelState.IsValid)
             {
-                foreach (int accessoryID in accessoryIDs)
+                if (AccessoryIDs != null)
+                {
+  foreach (int accessoryID in AccessoryIDs)
                     {
                     outfit.Accessories.Add(db.WardrobeItems.Find(accessoryID));
                     }
+                }
+               
                 db.Outfits.Add(outfit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +83,6 @@ namespace DressItDB.Controllers
             ViewBag.TopID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.TopID);
             ViewBag.BottomID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.BottomID);
             ViewBag.ShoeID = new SelectList(db.WardrobeItems, "WardrobeItemID", "Name", outfit.ShoeID);
-            
             return View(outfit);
         }
 
